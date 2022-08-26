@@ -8,7 +8,7 @@ def index(request):
 
 
 def counter(request):
-    text = request.GET['text']
+    text = request.POST['text']
     number_of_words = len(text.split())
     context = {
         'number_of_words': number_of_words
