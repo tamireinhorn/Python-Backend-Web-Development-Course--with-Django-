@@ -16,7 +16,7 @@ def main_page(request):
     doctor_2 = Doctor(2, 'Handel Scholze Marques', 'Cardiology', 'Can bring back the dead')
     doctor_3 = Doctor(3, 'Tamir Einhorn Salem', "CEO's son", 'He does not work here')
     doctors = [doctor_1, doctor_2, doctor_3]
-    return render(request, 'index.html', {'features': features, 'doctors': doctors})
+    return render(request, 'index.html', {'features': features, 'doctors': doctors })
 
 
 def counter(request):
