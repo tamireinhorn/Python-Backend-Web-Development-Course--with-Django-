@@ -30,6 +30,7 @@ def register(request):
             messages.info(request, "Passwords inputted were not the same")
     return render(request, 'register.html')
 
+
 def main_page(request):
     features = Feature.objects.all()
     doctors = Doctor.objects.all()
@@ -43,3 +44,18 @@ def counter(request):
         'number_of_words': number_of_words
     }
     return render(request, 'counter.html', context)
+
+
+def login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = auth.authenticate(username = username, password = password)
+        if user:
+            auth.login(request, user)
+            return redirect('/')
+        else:
+            messages.info(request, 'Invalid credentials')
+            return redirect('login')
+    else:
+        return render(request, 'login.html')
