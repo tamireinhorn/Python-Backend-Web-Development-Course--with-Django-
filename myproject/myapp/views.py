@@ -64,3 +64,12 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')
+
+
+def post(request, pk: str):
+    return render(request, 'post.html', {'pk': pk})
+
+
+def hub(request):
+    posts = [1, 2, 3, 'zap', 'muito zap', 4, 5]
+    return render(request, 'hub.html', {'posts': posts})

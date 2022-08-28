@@ -9,4 +9,6 @@ urlpatterns = [
     path('register', views.register, name = 'register'),
     path('login', views.login, name = 'login'),
     path('logout', views.logout, name = 'logout'),
+    path('hub', views.hub, name = 'hub'),
+    path('post/<str:pk>', views.post, name = 'post'), # Dynamic url with a variable
 ]
